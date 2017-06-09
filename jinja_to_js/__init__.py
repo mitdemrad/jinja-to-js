@@ -788,6 +788,12 @@ class JinjaToJS(object):
             self._process_node(node.node, **kwargs)
             self.output.write(';')
 
+    def _process_with(self, node, **kwargs):
+        """
+        New node name Jinja2 >= 2.9
+        """
+        self._process_scope(node, **kwargs)
+
     def _process_scope(self, node, **kwargs):
 
         # keep a copy of the stored names before the scope
